@@ -6,8 +6,20 @@ import org.junit.Test;
 public class BinaryTreeTest {
 
     @Test
+    public void shouldCreateNewTreeWithRoot() {
+        BinaryTree<Integer> tree = new BinaryTree<>(1);
+
+        Assert.assertTrue(tree.contains(1));
+        Assert.assertFalse(tree.contains(2));
+
+        tree.add(2);
+        Assert.assertTrue(tree.contains(1));
+        Assert.assertTrue(tree.contains(2));
+    }
+
+    @Test
     public void shouldTraverseBinaryTreeInPostOrder() {
-        BinaryTree tree = new BinaryTree(1);
+        BinaryTree<Integer> tree = new BinaryTree<>(1);
 
         tree.add(2);
         tree.add(3);
@@ -16,7 +28,7 @@ public class BinaryTreeTest {
 
     @Test
     public void shouldTraverseBinaryTreeInPreOrder() {
-        BinaryTree tree = new BinaryTree(1);
+        BinaryTree<Integer> tree = new BinaryTree<>(1);
 
         tree.add(2);
         tree.add(3);
@@ -25,7 +37,7 @@ public class BinaryTreeTest {
 
     @Test
     public void shouldTraverseBinaryTreeInInOrder() {
-        BinaryTree tree = new BinaryTree(1);
+        BinaryTree<Integer> tree = new BinaryTree<>(1);
 
         tree.add(2);
         tree.add(3);

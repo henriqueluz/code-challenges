@@ -18,6 +18,21 @@ public class BinaryTree<T> {
         }
     }
 
+    public boolean contains(T value) {
+        return contains(root, value);
+    }
+
+    private boolean contains(Node node, T value) {
+        if (node != null) {
+            if(node.value.equals(value)) {
+                return true;
+            } else {
+                return contains(node.left, value) || contains(node.left, value);
+            }
+        }
+        return false;
+    }
+
     public String postOrder() {
         return postOrder(root);
     }
