@@ -2,6 +2,11 @@ package com.github.henriqueluz.datastructure;
 
 public class BinaryTree<T> {
 
+    public static final String POST_ORDER = "PostOrder";
+    public static final String PRE_ORDER = "PreOrder";
+    public static final String IN_ORDER = "InOrder";
+
+
     private Node root;
 
     public BinaryTree(T value) {
@@ -33,8 +38,17 @@ public class BinaryTree<T> {
         return false;
     }
 
-    public String postOrder() {
-        return postOrder(root);
+    public String traverse(String traverse) {
+        switch (traverse) {
+            case POST_ORDER :
+                return postOrder(root);
+            case PRE_ORDER :
+                return preOrder(root);
+            case IN_ORDER :
+                return inOrder(root);
+            default :
+                return preOrder(root);
+        }
     }
 
     private String postOrder(Node node) {
@@ -47,10 +61,6 @@ public class BinaryTree<T> {
         return result.toString();
     }
 
-    public String preOrder() {
-        return preOrder(root);
-    }
-
     private String preOrder(Node node) {
         StringBuilder result = new StringBuilder();
         if (node != null) {
@@ -59,10 +69,6 @@ public class BinaryTree<T> {
                     .append(preOrder(node.right));
         }
         return result.toString();
-    }
-
-    public String inOrder() {
-        return inOrder(root);
     }
 
     private String inOrder(Node node) {
