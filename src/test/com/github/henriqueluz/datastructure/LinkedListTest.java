@@ -54,4 +54,24 @@ public class LinkedListTest {
         Assert.assertFalse(list.contains(value2));
     }
 
+    @Test
+    public void shouldReturnLenghtOfALinkedList() {
+        LinkedList<String> list = new LinkedList<>();
+        String value = "Value 1";
+        String value2 = "Value 2";
+        String value3 = "Value 3";
+
+        list.add(value);
+        list.add(value2);
+        list.add(value3);
+
+        Assert.assertEquals(3, list.length());
+
+        list.remove(value);
+        list.remove(value2);
+        list.remove(value3);
+
+        Assert.assertEquals(0, list.length());
+    }
+
 }

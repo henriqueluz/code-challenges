@@ -67,6 +67,20 @@ public class LinkedList<T> {
         return head == null;
     }
 
+    public int length() {
+        if (head == null) {
+            return 0;
+        }
+        return 1 + length(head.next);
+    }
+
+    private int length(Node node) {
+        if (node == null) {
+            return 0;
+        }
+        return 1 + length(node.next);
+    }
+
     @Override
     public String toString() {
         Node current = head;
