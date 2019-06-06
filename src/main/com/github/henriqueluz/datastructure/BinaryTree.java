@@ -1,5 +1,7 @@
 package com.github.henriqueluz.datastructure;
 
+import static java.lang.Math.max;
+
 public class BinaryTree<T> {
 
     public static final String POST_ORDER = "PostOrder";
@@ -36,6 +38,17 @@ public class BinaryTree<T> {
             }
         }
         return false;
+    }
+
+    public int height() {
+        return height(root);
+    }
+
+    private int height(Node node) {
+        if (node != null)  {
+            return 1 + max(height(node.left), height(node.right));
+        }
+        return 0;
     }
 
     public String traverse(String traverse) {

@@ -48,4 +48,16 @@ public class BinaryTreeTest {
         Assert.assertEquals("2,1,3,", tree.traverse(IN_ORDER));
     }
 
+    @Test
+    public void shouldReturnTreeHeight() {
+        BinaryTree<Integer> tree = new BinaryTree<>(1);
+
+        tree.add(2);
+        tree.add(3);
+        tree.add(4);
+        tree.add(5);
+
+        Assert.assertEquals(3, tree.height());
+    }
+
 }
