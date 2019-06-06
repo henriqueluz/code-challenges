@@ -68,10 +68,7 @@ public class LinkedList<T> {
     }
 
     public int length() {
-        if (head == null) {
-            return 0;
-        }
-        return 1 + length(head.next);
+        return length(head);
     }
 
     private int length(Node node) {
