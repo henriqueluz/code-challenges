@@ -38,13 +38,13 @@ public class BinaryTree<T> {
     }
 
     private String postOrder(Node node) {
-        String result = "";
+        StringBuilder result = new StringBuilder();
         if (node != null) {
-            result += postOrder(node.left);
-            result += postOrder(node.right);
-            result += node.value.toString() + ",";
+            result.append(postOrder(node.left))
+                  .append(postOrder(node.right))
+                  .append(node.value.toString() + ",");
         }
-        return result;
+        return result.toString();
     }
 
     public String preOrder() {
@@ -52,13 +52,13 @@ public class BinaryTree<T> {
     }
 
     private String preOrder(Node node) {
-        String result = "";
+        StringBuilder result = new StringBuilder();
         if (node != null) {
-            result += node.value.toString() + ",";
-            result += preOrder(node.left);
-            result += preOrder(node.right);
+            result.append(node.value.toString() + ",")
+                    .append(preOrder(node.left))
+                    .append(preOrder(node.right));
         }
-        return result;
+        return result.toString();
     }
 
     public String inOrder() {
@@ -66,13 +66,13 @@ public class BinaryTree<T> {
     }
 
     private String inOrder(Node node) {
-        String result = "";
+        StringBuilder result = new StringBuilder();
         if (node != null) {
-            result += inOrder(node.left);
-            result += node.value.toString() + ",";
-            result += inOrder(node.right);
+            result.append(inOrder(node.left))
+                    .append(node.value.toString() + ",")
+                    .append(inOrder(node.right));
         }
-        return result;
+        return result.toString();
     }
 
     public void add(T value) {
