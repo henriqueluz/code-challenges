@@ -39,4 +39,19 @@ public class LinkedListTest {
         Assert.assertEquals(expected, list.toString());
     }
 
+    @Test
+    public void shouldRemoveAGivenElementFromTheList() {
+        LinkedList<String> list = new LinkedList<>();
+        String value = "Value 1";
+        String value2 = "Value 2";
+        String value3 = "Value 3";
+
+        list.add(value);
+        list.add(value2);
+        list.add(value3);
+        list.remove(value2);
+
+        Assert.assertFalse(list.contains(value2));
+    }
+
 }

@@ -7,18 +7,20 @@ public class LinkedList<T> {
     private class Node {
         T value;
         Node next;
+
+        Node(T data) {
+            value = data;
+        }
     }
 
     public void add(T element) {
         if (head == null) {
-            head = new Node();
-            head.value = element;
+            head = new Node(element);
         } else {
             Node current = head;
             while (current != null) {
                 if(current.next == null) {
-                    current.next = new Node();
-                    current.next.value = element;
+                    current.next = new Node(element);
                     return;
                 }
                 current = current.next;
@@ -39,7 +41,30 @@ public class LinkedList<T> {
     }
 
     public void remove(T element) {
+        Node current = head;
+        Node previous = current;
 
+        if (current != null && current.value.equals(element)) {
+            head = current.next;
+            return;
+        }
+
+        while(current != null) {
+            if (current.value.equals(element)) {
+                previous.next = current.next;
+                current = null;
+                return;
+            }
+
+            previous = current;
+            current = current.next;
+        }
+
+        return;
+    }
+
+    public boolean isEmpty() {
+        return head == null;
     }
 
     @Override
