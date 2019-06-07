@@ -34,7 +34,7 @@ public class BinaryTree<T> {
             if(node.value.equals(value)) {
                 return true;
             } else {
-                return contains(node.left, value) || contains(node.left, value);
+                return contains(node.left, value) || contains(node.right, value);
             }
         }
         return false;
