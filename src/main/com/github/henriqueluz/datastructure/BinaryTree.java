@@ -69,7 +69,8 @@ public class BinaryTree<T> {
         if (node != null) {
             result.append(postOrder(node.left))
                   .append(postOrder(node.right))
-                  .append(node.value.toString() + ",");
+                  .append(node.value.toString())
+                  .append(",");
         }
         return result.toString();
     }
@@ -77,7 +78,8 @@ public class BinaryTree<T> {
     private String preOrder(Node node) {
         StringBuilder result = new StringBuilder();
         if (node != null) {
-            result.append(node.value.toString() + ",")
+            result.append(node.value.toString())
+                    .append(",")
                     .append(preOrder(node.left))
                     .append(preOrder(node.right));
         }
@@ -88,7 +90,8 @@ public class BinaryTree<T> {
         StringBuilder result = new StringBuilder();
         if (node != null) {
             result.append(inOrder(node.left))
-                    .append(node.value.toString() + ",")
+                    .append(node.value.toString())
+                    .append(",")
                     .append(inOrder(node.right));
         }
         return result.toString();
