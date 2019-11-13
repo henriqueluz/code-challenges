@@ -4,7 +4,7 @@ import com.github.henriqueluz.datastructure.Stack;
 
 import static java.lang.Integer.parseInt;
 
-public class PRN {
+public class PolishReverseNotation {
 
     private static Stack<Integer> stack = new Stack<>(200);
 
