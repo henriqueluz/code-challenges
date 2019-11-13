@@ -2,31 +2,18 @@ package com.github.henriqueluz.challenges.cards;
 
 import org.junit.Test;
 
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class DeckTest {
 
     @Test
-    public void shouldInitEmptyDeck() {
+    public void shouldShuffleDeck() {
         Deck deck = new Deck();
+        List<Card> first = deck.shuffle();
+        List<Card> second = deck.shuffle();
 
-        assertThat(deck.isEmpty()).isTrue();
-    }
-
-    @Test
-    public void shouldInitDeckWithCards() {
-        Deck deck = new Deck();
-        deck.init();
-
-        assertThat(deck.isEmpty()).isFalse();
-    }
-
-    @Test
-    public void shouldInitDeckWith52Cards() {
-        int expectedSize = 52;
-        Deck deck = new Deck();
-        deck.init();
-
-        assertThat(deck.size()).isEqualTo(expectedSize);
+        assertThat(first).isNotEqualTo(second);
     }
 }

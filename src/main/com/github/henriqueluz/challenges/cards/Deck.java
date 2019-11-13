@@ -1,43 +1,28 @@
 package com.github.henriqueluz.challenges.cards;
 
-import java.util.ArrayDeque;
-import java.util.Deque;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import java.util.stream.Stream;
 
 public class Deck {
 
-    private final Deque<Card> cards;
+    public List<Card> shuffle() {
+        List<Card> cards = new ArrayList<>();
+        Stream.of(Rank.values())
+                .forEach(rank -> cards.addAll(buildAllCardsForRank(rank)));
 
-    public Deck() {
-        this.cards = new ArrayDeque<>();
+        Collections.shuffle(cards);
+        return cards;
     }
 
-    public Deque<Card> shuffle() {
-        return null;
-    }
-
-    public void init() {
-        Stream.of(Rank.values()).forEach(
-                rank -> cards.addAll(buildCardsForRank(rank))
+    private static List<Card> buildAllCardsForRank(Rank rank) {
+        return Arrays.asList(
+                new Card(rank, Suit.SPADES),
+                new Card(rank, Suit.DIAMONDS),
+                new Card(rank, Suit.HEARTS),
+                new Card(rank, Suit.CLUBS)
         );
-    }
-
-    public boolean isEmpty() {
-        return cards.isEmpty();
-    }
-
-    public Integer size() {
-        return cards.size();
-    }
-
-    private static Set<Card> buildCardsForRank(Rank rank) {
-        return new HashSet<Card>() {{
-            add(new Card(rank, Suit.SPADES));
-            add(new Card(rank, Suit.DIAMONDS));
-            add(new Card(rank, Suit.HEARTS));
-            add(new Card(rank, Suit.CLUBS));
-        }};
     }
 }

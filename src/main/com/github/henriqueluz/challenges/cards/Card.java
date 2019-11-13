@@ -13,5 +13,9 @@ public class Card {
         this.suit = suit;
     }
 
+    @Override
+    public String toString() {
+        return String.format("[%s of %s]", rank, suit);
+    }
 
 }
