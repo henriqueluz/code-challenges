@@ -12,3 +12,14 @@ http://leetcode.com
 http://topcoder.com
 1. **A0 Paper:** [Description](https://arena.topcoder.com/#/u/practiceCode/17244/67923/15005/2/331608)
     * **Source code:** [A0Paper.java](https://github.com/henriqueluz/code-challenges/blob/master/src/main/com/github/henriqueluz/topcoder/A0Paper.java)
+    
+### Data Structure Playground
+
+1. **BinaryTree:** Binary tree implementation
+    * **Source code:** [BinaryTree.java](https://github.com/henriqueluz/code-challenges/blob/master/src/main/com/github/henriqueluz/datastructure/BinaryTree.java)
+2. **LinkedList:** Simple Linked list implementation 
+    * **Source code:** [LinkedList.java](https://github.com/henriqueluz/code-challenges/blob/master/src/main/com/github/henriqueluz/datastructure/LinkedList.java)
+3. **Stack:** Basic stack implementation
+    * **Source code:** [Stack.java](https://github.com/henriqueluz/code-challenges/blob/master/src/main/com/github/henriqueluz/datastructure/Stack.java)
+4. **Cards:** Shuffle a deck of cards.
+    * **Source code:** [Deck.java](https://github.com/henriqueluz/code-challenges/blob/master/src/main/com/github/henriqueluz/challenges/cards/Deck.java)
