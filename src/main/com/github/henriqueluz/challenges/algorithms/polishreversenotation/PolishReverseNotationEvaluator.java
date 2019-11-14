@@ -22,14 +22,15 @@ public class PolishReverseNotationEvaluator implements ExpressionEvaluator {
     public Integer evaluate(String expression) {
         String[] characters = expression.split(" ");
 
-        Stream.of(characters).forEach(character -> {
+        Stream.of(characters).forEach(token -> {
 
-            if (isOperator(character)) {
+            if (isOperator(token)) {
                 Integer operand1 = resultStack.pop();
                 Integer operand2 = resultStack.pop();
-                resultStack.push(calculate(character, operand1, operand2));
+                Integer result = calculate(token, operand2, operand1);
+                resultStack.push(result);
             } else {
-                resultStack.push(parseInt(character));
+                resultStack.push(parseInt(token));
             }
 
         });
