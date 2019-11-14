@@ -1,25 +1,21 @@
 package com.github.henriqueluz.challenges.cards;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Deque;
 import java.util.List;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Deck {
 
-    public List<Card> shuffle() {
+    public Deque<Card> shuffle() {
         List<Card> cards = new ArrayList<>();
         Stream.of(Rank.values())
-                .forEach(rank -> cards.addAll(buildAllCardsForRank(rank)));
+                .forEach(rank -> cards.addAll(rank.getAllCardsForRank()));
         Collections.shuffle(cards);
 
-        return cards;
+        return new ArrayDeque<>(cards);
     }
 
-    private static List<Card> buildAllCardsForRank(Rank rank) {
-        return Stream.of(Suit.values())
-                .map(suit -> new Card(rank, suit))
-                .collect(Collectors.toList());
-    }
 }

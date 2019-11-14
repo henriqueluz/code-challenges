@@ -1,5 +1,9 @@
 package com.github.henriqueluz.challenges.cards;
 
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 public enum Rank {
 
     ACE,
@@ -14,6 +18,11 @@ public enum Rank {
     TEN,
     JACK,
     QUEEN,
-    KING
+    KING;
 
+    public List<Card> getAllCardsForRank() {
+        return Stream.of(Suit.values())
+                .map(suit -> new Card(this, suit))
+                .collect(Collectors.toList());
+    }
 }
