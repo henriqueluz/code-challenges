@@ -23,3 +23,5 @@ http://topcoder.com
     * **Source code:** [Stack.java](https://github.com/henriqueluz/code-challenges/blob/master/src/main/com/github/henriqueluz/datastructure/Stack.java)
 4. **Cards:** Shuffle a deck of cards.
     * **Source code:** [Deck.java](https://github.com/henriqueluz/code-challenges/blob/master/src/main/com/github/henriqueluz/challenges/cards/Deck.java)
+5. **Polish Reverse Notation:** Solving [Polish Reverse Notation](https://en.wikipedia.org/wiki/Reverse_Polish_notation) problem 
+    * **Source code:** [PolishReverseNotationCalculator.java](https://github.com/henriqueluz/code-challenges/blob/master/src/main/com/github/henriqueluz/challenges/algorithms/polishreversenotation/PolishReverseNotationEvaluator.java)
