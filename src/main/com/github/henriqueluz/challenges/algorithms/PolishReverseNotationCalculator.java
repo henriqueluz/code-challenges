@@ -1,15 +1,15 @@
-package com.github.henriqueluz.challenges;
+package com.github.henriqueluz.challenges.algorithms;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
 
 import static java.lang.Integer.parseInt;
 
-public class PolishReverseNotation {
+public class PolishReverseNotationCalculator {
 
     private static Deque<Integer> expression = new ArrayDeque<>();
 
-    public static Integer calc(String sentence) {
+    public static Integer apply(String sentence) {
         String[] characters = sentence.split(" ");
 
         for (int i = 0; i < characters.length; i++) {
