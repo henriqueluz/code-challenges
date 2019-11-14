@@ -1,12 +1,13 @@
 package com.github.henriqueluz.challenges;
 
-import com.github.henriqueluz.datastructure.Stack;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 import static java.lang.Integer.parseInt;
 
 public class PolishReverseNotation {
 
-    private static Stack<Integer> stack = new Stack<>(200);
+    private static Deque<Integer> expression = new ArrayDeque<>();
 
     public static Integer calc(String sentence) {
         String[] characters = sentence.split(" ");
@@ -14,16 +15,16 @@ public class PolishReverseNotation {
         for (int i = 0; i < characters.length; i++) {
             String character = characters[i];
             if (isOperator(character)) {
-                Integer operand1 = stack.pop();
-                Integer operand2 = stack.pop();
+                Integer operand1 = expression.pop();
+                Integer operand2 = expression.pop();
                 Integer result = calculate(character, operand1, operand2);
-                stack.push(result);
+                expression.push(result);
             } else {
-                stack.push(parseInt(character));
+                expression.push(parseInt(character));
             }
         }
 
-        return stack.pop();
+        return expression.pop();
     }
 
     private static boolean isOperator(String character) {
