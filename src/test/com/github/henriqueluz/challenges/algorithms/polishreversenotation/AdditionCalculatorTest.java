@@ -1,5 +1,6 @@
-package com.github.henriqueluz.challenges.algorithms;
+package com.github.henriqueluz.challenges.algorithms.polishreversenotation;
 
+import com.github.henriqueluz.challenges.algorithms.polishreversenotation.AdditionCalculator;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;

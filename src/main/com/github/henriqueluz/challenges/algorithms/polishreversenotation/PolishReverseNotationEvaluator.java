@@ -1,4 +1,4 @@
-package com.github.henriqueluz.challenges.algorithms;
+package com.github.henriqueluz.challenges.algorithms.polishreversenotation;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
