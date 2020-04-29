@@ -26,7 +26,7 @@ public class BinaryTreeTest {
 
         tree.add(2);
         tree.add(3);
-        assertEquals("2,3,1", tree.traverse(POST_ORDER));
+        assertEquals("2,3,1", tree.postOrder());
     }
 
     @Test
@@ -35,7 +35,7 @@ public class BinaryTreeTest {
 
         tree.add(2);
         tree.add(3);
-        assertEquals("1,2,3", tree.traverse(PRE_ORDER));
+        assertEquals("1,2,3", tree.preOrder());
     }
 
     @Test
@@ -44,7 +44,7 @@ public class BinaryTreeTest {
 
         tree.add(2);
         tree.add(3);
-        assertEquals("2,1,3", tree.traverse(IN_ORDER));
+        assertEquals("2,1,3", tree.inOrder());
     }
 
     @Test

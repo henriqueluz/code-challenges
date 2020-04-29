@@ -1,15 +1,12 @@
 package com.github.henriqueluz.datastructure.tree;
 
+import java.util.Arrays;
+import java.util.List;
+
+import static com.github.henriqueluz.datastructure.tree.Traversable.*;
 import static java.lang.Math.max;
 
 public class BinaryTree {
-
-    public static final String POST_ORDER = "PostOrder";
-    public static final String PRE_ORDER = "PreOrder";
-    public static final String IN_ORDER = "InOrder";
-    private final Traversable preOrder = new PreOrderTraverse();
-    private final Traversable postOrder = new PostOrderTraverse();
-    private final Traversable inOrder = new InOrderTraverse();
 
     private Node root;
 
@@ -21,6 +18,9 @@ public class BinaryTree {
         private Node left;
         private Node right;
         private Integer data;
+        private List<Traversable> traversables = Arrays.asList(new PreOrderTraverse(),
+                                                                new PostOrderTraverse(),
+                                                                new InOrderTraverse());
 
         Node(Integer value) {
             this.data = value;
@@ -70,6 +70,13 @@ public class BinaryTree {
                 left.add(data);
             }
         }
+
+        String traverse(String traversal) {
+            return traversables.stream()
+                                .filter(t -> t.check(traversal))
+                                .findFirst().orElse(new PreOrderTraverse())
+                                .traverse(this);
+        }
     }
 
     public boolean contains(Integer value) {
@@ -85,15 +92,15 @@ public class BinaryTree {
         root.add(value);
     }
 
-    public String traverse(String traverse) {
-        switch (traverse) {
-            case POST_ORDER :
-                return postOrder.traverse(root);
-            case IN_ORDER :
-                return inOrder.traverse(root);
-            default :
-                return preOrder.traverse(root);
-        }
+    public String preOrder() {
+        return root.traverse(PRE_ORDER);
     }
 
+    public String postOrder() {
+        return root.traverse(POST_ORDER);
+    }
+
+    public String inOrder() {
+        return root.traverse(IN_ORDER);
+    }
 }
