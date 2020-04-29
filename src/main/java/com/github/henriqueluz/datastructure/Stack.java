@@ -2,6 +2,8 @@ package com.github.henriqueluz.datastructure;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Stack<T> {
 
@@ -19,8 +21,8 @@ public class Stack<T> {
         if (top == 0) {
             throw new IllegalStateException("Stack is empty");
         }
-        top--;
-        return elements.get(top);
+
+        return elements.get(top - 1);
     }
 
     public void push(T value) {
@@ -34,6 +36,7 @@ public class Stack<T> {
 
     public T pop() {
         T element = peek();
+        top--;
         elements.remove(top);
         return element;
     }
@@ -44,12 +47,9 @@ public class Stack<T> {
 
     @Override
     public String toString() {
-        String result = "";
-        for (int i = top - 1; i >= 0; i--) {
-            result += elements.get(i) + ", ";
-        }
-
-        return result;
+       return Stream.of(elements)
+                .map(Object::toString)
+                .collect(Collectors.joining(","));
     }
 
 }

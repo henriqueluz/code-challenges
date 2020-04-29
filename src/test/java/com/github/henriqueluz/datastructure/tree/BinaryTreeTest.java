@@ -2,7 +2,6 @@ package com.github.henriqueluz.datastructure.tree;
 
 import org.junit.Test;
 
-import static com.github.henriqueluz.datastructure.tree.BinaryTree.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.*;
 

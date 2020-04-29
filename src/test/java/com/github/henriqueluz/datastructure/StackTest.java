@@ -1,20 +1,21 @@
 package com.github.henriqueluz.datastructure;
 
-import org.junit.Assert;
+import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.Test;
+
+import static org.junit.Assert.*;
 
 public class StackTest {
 
     @Test
     public void shouldPushElementsToStack() {
         Stack<Integer> stack = new Stack<>(5);
-        Assert.assertTrue(stack.isEmpty());
+        assertTrue(stack.isEmpty());
 
         stack.push(10);
         stack.push(20);
 
-        Assert.assertFalse(stack.isEmpty());
-
+        assertFalse(stack.isEmpty());
     }
 
     @Test(expected = IllegalStateException.class)
@@ -25,7 +26,6 @@ public class StackTest {
         stack.push(20);
         stack.push(30);
         stack.push(40);
-
     }
 
     @Test(expected = IllegalStateException.class)
@@ -33,7 +33,6 @@ public class StackTest {
         Stack<Integer> stack = new Stack<>(10);
 
         stack.pop();
-
     }
 
     @Test
@@ -41,10 +40,13 @@ public class StackTest {
         Stack<Integer> stack = new Stack<>(10);
         Integer expected = 10;
         stack.push(10);
-        Integer value = stack.pop();
+        stack.push(20);
+        Integer first = stack.pop();
+        Integer second = stack.pop();
 
-        Assert.assertTrue(stack.isEmpty());
-        Assert.assertEquals(expected, value);
+        assertTrue(stack.isEmpty());
+        assertEquals(expected, second);
+        assertThat(second).isNotEqualTo(first);
     }
 
     @Test
@@ -52,10 +54,25 @@ public class StackTest {
         Stack<Integer> stack = new Stack<>(10);
         Integer expected = 10;
         stack.push(10);
-        Integer value = stack.peek();
+        Integer first = stack.peek();
+        Integer second = stack.peek();
 
-        Assert.assertFalse(stack.isEmpty());
-        Assert.assertEquals(expected, value);
+        assertFalse(stack.isEmpty());
+        assertEquals(expected, first);
+        assertEquals(second, first);
+    }
+
+    @Test
+    public void shouldConvertToString() {
+        Stack<Integer> stack = new Stack<>(10);
+        Integer expected = 10;
+        stack.push(10);
+        stack.push(20);
+        stack.push(30);
+        Integer first = stack.peek();
+        Integer second = stack.peek();
+
+        assertThat(stack.toString()).isEqualTo("[10, 20, 30]");
     }
 
 }
