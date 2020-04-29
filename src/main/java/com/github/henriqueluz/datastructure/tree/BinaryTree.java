@@ -7,6 +7,9 @@ public class BinaryTree {
     public static final String POST_ORDER = "PostOrder";
     public static final String PRE_ORDER = "PreOrder";
     public static final String IN_ORDER = "InOrder";
+    private final Traversable preOrder = new PreOrderTraverse();
+    private final Traversable postOrder = new PostOrderTraverse();
+    private final Traversable inOrder = new InOrderTraverse();
 
     private Node root;
 
@@ -21,6 +24,18 @@ public class BinaryTree {
 
         Node(Integer value) {
             this.data = value;
+        }
+
+        public Integer getData() {
+            return data;
+        }
+
+        public Node getLeft() {
+            return left;
+        }
+
+        public Node getRight() {
+            return right;
         }
 
         boolean contains(Integer value) {
@@ -73,47 +88,12 @@ public class BinaryTree {
     public String traverse(String traverse) {
         switch (traverse) {
             case POST_ORDER :
-                return postOrder(root);
-            case PRE_ORDER :
-                return preOrder(root);
+                return postOrder.traverse(root);
             case IN_ORDER :
-                return inOrder(root);
+                return inOrder.traverse(root);
             default :
-                return preOrder(root);
+                return preOrder.traverse(root);
         }
-    }
-
-    private String postOrder(Node node) {
-        StringBuilder result = new StringBuilder();
-        if (node != null) {
-            result.append(postOrder(node.left))
-                  .append(postOrder(node.right))
-                  .append(node.data.toString())
-                  .append(",");
-        }
-        return result.toString();
-    }
-
-    private String preOrder(Node node) {
-        StringBuilder result = new StringBuilder();
-        if (node != null) {
-            result.append(node.data.toString())
-                    .append(",")
-                    .append(preOrder(node.left))
-                    .append(preOrder(node.right));
-        }
-        return result.toString();
-    }
-
-    private String inOrder(Node node) {
-        StringBuilder result = new StringBuilder();
-        if (node != null) {
-            result.append(inOrder(node.left))
-                    .append(node.data.toString())
-                    .append(",")
-                    .append(inOrder(node.right));
-        }
-        return result.toString();
     }
 
 }
