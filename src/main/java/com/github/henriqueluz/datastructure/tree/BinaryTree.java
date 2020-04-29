@@ -1,54 +1,73 @@
-package com.github.henriqueluz.datastructure;
+package com.github.henriqueluz.datastructure.tree;
 
 import static java.lang.Math.max;
 
-public class BinaryTree<T> {
+public class BinaryTree {
 
     public static final String POST_ORDER = "PostOrder";
     public static final String PRE_ORDER = "PreOrder";
     public static final String IN_ORDER = "InOrder";
 
-
     private Node root;
 
-    public BinaryTree(T value) {
+    public BinaryTree(Integer value) {
         this.root = new Node(value);
     }
 
-    private class Node {
-        Node left;
-        Node right;
-        T value;
+    protected class Node {
+        private Node left;
+        private Node right;
+        private Integer data;
 
-        Node(T value) {
-            this.value = value;
+        Node(Integer value) {
+            this.data = value;
         }
-    }
 
-    public boolean contains(T value) {
-        return contains(root, value);
-    }
-
-    private boolean contains(Node node, T value) {
-        if (node != null) {
-            if(node.value.equals(value)) {
+        boolean contains(Integer value) {
+            if (this.data.equals(value)) {
                 return true;
+            } else if (left != null) {
+                return left.contains(value);
+            } else if (right != null) {
+                return right.contains(value);
+            }
+            return false;
+        }
+
+        Integer height() {
+            if (left == null && right == null) {
+                return 1;
+            } else if (left != null && right != null) {
+                return 1 + max(left.height(), right.height());
+            } else if (right == null) {
+                return left.height();
             } else {
-                return contains(node.left, value) || contains(node.right, value);
+                return right.height();
             }
         }
-        return false;
-    }
 
-    public int height() {
-        return height(root);
-    }
-
-    private int height(Node node) {
-        if (node != null)  {
-            return 1 + max(height(node.left), height(node.right));
+        void add(Integer data) {
+            if (left == null) {
+                left = new Node(data);
+            } else if (right == null) {
+                right = new Node(data);
+            } else {
+                left.add(data);
+            }
         }
-        return 0;
+    }
+
+    public boolean contains(Integer value) {
+        return root.contains(value);
+    }
+
+
+    public Integer height() {
+        return root.height();
+    }
+
+    public void add(Integer value) {
+        root.add(value);
     }
 
     public String traverse(String traverse) {
@@ -69,7 +88,7 @@ public class BinaryTree<T> {
         if (node != null) {
             result.append(postOrder(node.left))
                   .append(postOrder(node.right))
-                  .append(node.value.toString())
+                  .append(node.data.toString())
                   .append(",");
         }
         return result.toString();
@@ -78,7 +97,7 @@ public class BinaryTree<T> {
     private String preOrder(Node node) {
         StringBuilder result = new StringBuilder();
         if (node != null) {
-            result.append(node.value.toString())
+            result.append(node.data.toString())
                     .append(",")
                     .append(preOrder(node.left))
                     .append(preOrder(node.right));
@@ -90,26 +109,11 @@ public class BinaryTree<T> {
         StringBuilder result = new StringBuilder();
         if (node != null) {
             result.append(inOrder(node.left))
-                    .append(node.value.toString())
+                    .append(node.data.toString())
                     .append(",")
                     .append(inOrder(node.right));
         }
         return result.toString();
-    }
-
-    public void add(T value) {
-        add(root, value);
-
-    }
-
-    private void add(Node node, T value) {
-        if (node.left == null) {
-            node.left = new Node(value);
-        } else if (node.right == null) {
-            node.right = new Node(value);
-        } else {
-            add(node.left, value);
-        }
     }
 
 }
