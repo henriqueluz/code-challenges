@@ -1,4 +1,4 @@
-package com.github.henriqueluz.challenges.recursion.hanoi;
+package com.github.henriqueluz.challenges.algorithms.recursion;
 
 public class Hanoi {
 

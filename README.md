@@ -25,3 +25,5 @@ http://topcoder.com
     * **Source code:** [Deck.java](https://github.com/henriqueluz/code-challenges/blob/master/src/main/com/github/henriqueluz/challenges/cards/Deck.java)
 5. **Polish Reverse Notation:** Solving [Polish Reverse Notation](https://en.wikipedia.org/wiki/Reverse_Polish_notation) problem 
     * **Source code:** [PolishReverseNotationCalculator.java](https://github.com/henriqueluz/code-challenges/blob/master/src/main/com/github/henriqueluz/challenges/algorithms/polishreversenotation/PolishReverseNotationEvaluator.java)
+6. **Tower of Hanoi:** Solving [Tower of Hanoi](https://en.wikipedia.org/wiki/Tower_of_Hanoi) problem 
+    * **Source code:** [Hanoi.java](https://github.com/henriqueluz/code-challenges/blob/master/src/main/com/github/henriqueluz/challenges/algorithms/recursion/Hanoi.java)
