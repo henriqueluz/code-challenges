@@ -1,6 +1,8 @@
 # code-challenges
 Having fun coding and solving problems from different sources
 
+![Java CI with Maven](https://github.com/henriqueluz/code-challenges/workflows/Java%20CI%20with%20Maven/badge.svg)
+
 ## Problems solved
 
 ### LeetCode 
