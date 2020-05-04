@@ -34,3 +34,5 @@ http://topcoder.com
 
 1. **BubbleSort:** Bubble sort algorithm implementation
     * **Source code:** [BubbleSort.java](https://github.com/henriqueluz/code-challenges/blob/master/src/main/java/com/github/henriqueluz/challenges/algorithms/sort/BubbleSort.java)
+2. **BubbleSort:** Insertion sort algorithm implementation
+    * **Source code:** [InsertionSort.java](https://github.com/henriqueluz/code-challenges/blob/master/src/main/java/com/github/henriqueluz/challenges/algorithms/sort/InsertionSort.java)
