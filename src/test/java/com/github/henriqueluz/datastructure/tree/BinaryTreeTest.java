@@ -3,13 +3,15 @@ package com.github.henriqueluz.datastructure.tree;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class BinaryTreeTest {
 
     @Test
     public void shouldCreateNewTreeWithRoot() {
-        BinaryTree tree = new BinaryTree(1);
+        BinaryTree<Integer> tree = new BinaryTree<>(1);
 
         assertTrue(tree.contains(1));
         assertFalse(tree.contains(2));
@@ -21,7 +23,7 @@ public class BinaryTreeTest {
 
     @Test
     public void shouldTraverseBinaryTreeInPostOrder() {
-        BinaryTree tree = new BinaryTree(1);
+        BinaryTree<Integer> tree = new BinaryTree<>(1);
 
         tree.add(2);
         tree.add(3);
@@ -30,7 +32,7 @@ public class BinaryTreeTest {
 
     @Test
     public void shouldTraverseBinaryTreeInPreOrder() {
-        BinaryTree tree = new BinaryTree(1);
+        BinaryTree<Integer> tree = new BinaryTree<>(1);
 
         tree.add(2);
         tree.add(3);
@@ -39,7 +41,7 @@ public class BinaryTreeTest {
 
     @Test
     public void shouldTraverseBinaryTreeInInOrder() {
-        BinaryTree tree = new BinaryTree(1);
+        BinaryTree<Integer> tree = new BinaryTree<>(1);
 
         tree.add(2);
         tree.add(3);
@@ -48,7 +50,7 @@ public class BinaryTreeTest {
 
     @Test
     public void shouldReturnTreeHeight() {
-        BinaryTree tree = new BinaryTree(1);
+        BinaryTree<Integer> tree = new BinaryTree<>(1);
 
         tree.add(2);
         tree.add(3);

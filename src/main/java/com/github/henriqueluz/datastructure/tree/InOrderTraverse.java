@@ -6,7 +6,7 @@ import java.util.stream.Stream;
 public class InOrderTraverse implements Traversable {
 
     @Override
-    public String traverse(BinaryTree.Node node) {
+    public <T extends Comparable<T>, E extends Comparable<E>> String traverse(BinaryTree<T>.Node<E> node) {
         if (node != null) {
             return Stream.of(traverse(node.getLeft()),
                                       node.getData().toString(),

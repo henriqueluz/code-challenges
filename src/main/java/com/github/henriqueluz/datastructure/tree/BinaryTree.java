@@ -3,42 +3,44 @@ package com.github.henriqueluz.datastructure.tree;
 import java.util.Arrays;
 import java.util.List;
 
-import static com.github.henriqueluz.datastructure.tree.Traversable.*;
+import static com.github.henriqueluz.datastructure.tree.Traversable.IN_ORDER;
+import static com.github.henriqueluz.datastructure.tree.Traversable.POST_ORDER;
+import static com.github.henriqueluz.datastructure.tree.Traversable.PRE_ORDER;
 import static java.lang.Math.max;
 
-public class BinaryTree {
+public class BinaryTree<T extends Comparable<T>> {
 
-    private Node root;
+    private Node<T> root;
 
-    public BinaryTree(Integer value) {
-        this.root = new Node(value);
+    public BinaryTree(T value) {
+        this.root = new Node<>(value);
     }
 
-    protected class Node {
-        private Node left;
-        private Node right;
-        private Integer data;
+    protected class Node<E extends Comparable<E>> {
+        private Node<E> left;
+        private Node<E> right;
+        private E data;
         private List<Traversable> traversables = Arrays.asList(new PreOrderTraverse(),
                                                                 new PostOrderTraverse(),
                                                                 new InOrderTraverse());
 
-        Node(Integer value) {
+        Node(E value) {
             this.data = value;
         }
 
-        public Integer getData() {
+        public E getData() {
             return data;
         }
 
-        public Node getLeft() {
+        public Node<E> getLeft() {
             return left;
         }
 
-        public Node getRight() {
+        public Node<E> getRight() {
             return right;
         }
 
-        boolean contains(Integer value) {
+        boolean contains(E value) {
             if (this.data.equals(value)) {
                 return true;
             } else if (left != null) {
@@ -61,11 +63,11 @@ public class BinaryTree {
             }
         }
 
-        void add(Integer data) {
+        void add(E data) {
             if (left == null) {
-                left = new Node(data);
+                left = new Node<>(data);
             } else if (right == null) {
-                right = new Node(data);
+                right = new Node<>(data);
             } else {
                 left.add(data);
             }
@@ -79,7 +81,7 @@ public class BinaryTree {
         }
     }
 
-    public boolean contains(Integer value) {
+    public boolean contains(T value) {
         return root.contains(value);
     }
 
@@ -88,7 +90,7 @@ public class BinaryTree {
         return root.height();
     }
 
-    public void add(Integer value) {
+    public void add(T value) {
         root.add(value);
     }
 

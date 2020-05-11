@@ -5,7 +5,7 @@ public interface Traversable {
     String PRE_ORDER = "PreOrder";
     String IN_ORDER = "InOrder";
 
-    String traverse(BinaryTree.Node node);
+    <T extends Comparable<T>, E extends Comparable<E>> String traverse(BinaryTree<T>.Node<E> node);
     boolean check(String traversal);
 
 }
