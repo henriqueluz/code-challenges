@@ -18,7 +18,7 @@ http://topcoder.com
 ### Data Structure Playground
 
 1. **BinaryTree:** Binary tree implementation
-    * **Source code:** [BinaryTree.java](https://github.com/henriqueluz/code-challenges/blob/master/src/main/java/com/github/henriqueluz/datastructure/BinaryTree.java)
+    * **Source code:** [BinaryTree.java](https://github.com/henriqueluz/code-challenges/blob/master/src/main/java/com/github/henriqueluz/datastructure/tree/BinaryTree.java)
 2. **LinkedList:** Simple Linked list implementation 
     * **Source code:** [LinkedList.java](https://github.com/henriqueluz/code-challenges/blob/master/src/main/java/com/github/henriqueluz/datastructure/LinkedList.java)
 3. **Stack:** Basic stack implementation
