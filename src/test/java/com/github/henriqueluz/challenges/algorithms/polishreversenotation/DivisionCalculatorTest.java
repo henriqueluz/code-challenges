@@ -8,22 +8,22 @@ public class DivisionCalculatorTest {
 
     @Test
     public void shouldCheckDivisionOperatorIsTrue() {
-        DivisionCalculator calculator = new DivisionCalculator();
-        assertThat(calculator.check("/")).isTrue();
+        Operation division = Operation.Division;
+        assertThat(division.check("/")).isTrue();
     }
 
     @Test
     public void shouldCheckAnyOtherOperatorIsFalse() {
-        DivisionCalculator calculator = new DivisionCalculator();
-        assertThat(calculator.check("+")).isFalse();
-        assertThat(calculator.check("*")).isFalse();
-        assertThat(calculator.check("-")).isFalse();
+        Operation division = Operation.Division;
+        assertThat(division.check("+")).isFalse();
+        assertThat(division.check("*")).isFalse();
+        assertThat(division.check("-")).isFalse();
     }
 
     @Test
     public void applyDivisionOperation() {
-        DivisionCalculator calculator = new DivisionCalculator();
-        assertThat(calculator.apply(10, 5)).isEqualTo(2);
+        Operation division = Operation.Division;
+        assertThat(division.execute(10, 5)).isEqualTo(2);
     }
     
 }

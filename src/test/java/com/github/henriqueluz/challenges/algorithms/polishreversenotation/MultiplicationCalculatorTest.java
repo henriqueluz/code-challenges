@@ -8,22 +8,22 @@ public class MultiplicationCalculatorTest {
 
     @Test
     public void shouldCheckMultiplicationOperatorIsTrue() {
-        MultiplicationCalculator calculator = new MultiplicationCalculator();
-        assertThat(calculator.check("*")).isTrue();
+        Operation multiplication = Operation.Multiplication;
+        assertThat(multiplication.check("*")).isTrue();
     }
 
     @Test
     public void shouldCheckAnyOtherOperatorIsFalse() {
-        MultiplicationCalculator calculator = new MultiplicationCalculator();
-        assertThat(calculator.check("+")).isFalse();
-        assertThat(calculator.check("-")).isFalse();
-        assertThat(calculator.check("/")).isFalse();
+        Operation multiplication = Operation.Multiplication;
+        assertThat(multiplication.check("+")).isFalse();
+        assertThat(multiplication.check("-")).isFalse();
+        assertThat(multiplication.check("/")).isFalse();
     }
 
     @Test
     public void applyMultiplicationOperation() {
-        MultiplicationCalculator calculator = new MultiplicationCalculator();
-        assertThat(calculator.apply(5, 5)).isEqualTo(25);
+        Operation multiplication = Operation.Multiplication;
+        assertThat(multiplication.execute(5, 5)).isEqualTo(25);
     }
     
 }
