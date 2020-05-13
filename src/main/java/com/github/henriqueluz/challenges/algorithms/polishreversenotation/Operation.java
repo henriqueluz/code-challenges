@@ -1,7 +1,7 @@
 package com.github.henriqueluz.challenges.algorithms.polishreversenotation;
 
 import java.util.function.BiFunction;
-import java.util.function.Function;
+import java.util.function.Predicate;
 
 public enum Operation {
 
@@ -11,9 +11,9 @@ public enum Operation {
     Division( (x, y) -> x / y, "/"::equals);
 
     private BiFunction<Integer, Integer, Integer> operation;
-    private Function<String, Boolean> operator;
+    private Predicate<String> operator;
 
-    Operation(BiFunction<Integer, Integer, Integer> operation, Function<String, Boolean> operator) {
+    Operation(BiFunction<Integer, Integer, Integer> operation, Predicate<String> operator) {
         this.operation = operation;
         this.operator = operator;
     }
@@ -23,7 +23,7 @@ public enum Operation {
     }
 
     public boolean check(String operator) {
-        return this.operator.apply(operator);
+        return this.operator.test(operator);
     }
 
 }
