@@ -1,6 +1,6 @@
 package com.github.henriqueluz.challenges.algorithms.polishreversenotation;
 
-import java.util.function.BiFunction;
+import java.util.function.BinaryOperator;
 import java.util.function.Predicate;
 
 public enum Operation {
@@ -10,10 +10,10 @@ public enum Operation {
     Multiplication( (x, y) -> x * y, "*"::equals),
     Division( (x, y) -> x / y, "/"::equals);
 
-    private BiFunction<Integer, Integer, Integer> operation;
+    private BinaryOperator<Integer> operation;
     private Predicate<String> operator;
 
-    Operation(BiFunction<Integer, Integer, Integer> operation, Predicate<String> operator) {
+    Operation(BinaryOperator<Integer> operation, Predicate<String> operator) {
         this.operation = operation;
         this.operator = operator;
     }
