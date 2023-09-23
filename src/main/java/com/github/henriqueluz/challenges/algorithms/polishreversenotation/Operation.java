@@ -5,25 +5,19 @@ import java.util.function.Predicate;
 
 public enum Operation {
 
-    Addition( (x, y) -> x + y, "+"::equals),
-    Subtraction( (x, y) -> x - y, "-"::equals),
-    Multiplication( (x, y) -> x * y, "*"::equals),
-    Division( (x, y) -> x / y, "/"::equals);
+    Addition( (x, y) -> x + y),
+    Subtraction( (x, y) -> x - y),
+    Multiplication( (x, y) -> x * y),
+    Division( (x, y) -> x / y);
 
     private BinaryOperator<Integer> operation;
-    private Predicate<String> operator;
 
-    Operation(BinaryOperator<Integer> operation, Predicate<String> operator) {
+    Operation(BinaryOperator<Integer> operation) {
         this.operation = operation;
-        this.operator = operator;
     }
 
     public Integer execute(Integer first, Integer second) {
         return this.operation.apply(first, second);
-    }
-
-    public boolean check(String operator) {
-        return this.operator.test(operator);
     }
 
 }
